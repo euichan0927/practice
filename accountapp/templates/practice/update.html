@@ -3,8 +3,8 @@
 {% block content %}
 
   <div style="text-align:center;">
-    <h4>회원가입</h4>
-    <form action ="{% url 'accountapp:create' %}" method="post">
+    <h4>정보 수정</h4>
+    <form action ="{% url 'accountapp:update' pk=user.pk %}" method="post">
       {% csrf_token %}
       {% bootstrap_form form %}
       <input type="submit" class="btn btn-primary">

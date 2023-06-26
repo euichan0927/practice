@@ -9,11 +9,21 @@
         <a href="{% url 'accountapp:login' %}?next={{request.path}}">
         <span>로그인</span>
         </a>
+
+        <a href="{% url 'accountapp:create' %}">
+        <span>회원가입</span>
+        </a>
+
         {% else %}
         <a href="{% url 'accountapp:logout' %}?next={{request.path}}">
         <span>로그아웃</span>
         </a>
-        {% endif %}
+
+        <a href="{% url 'accountapp:detail' pk=user.pk %}">
         <span>마이페이지</span>
+        </a>
+        {% endif %}
+
+
     </div>
 </div>

@@ -3,8 +3,9 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
+from accountapp.forms import AccountUpdateForm
 from accountapp.models import HelloWorld
 
 
@@ -36,4 +37,21 @@ class AccountCreateView(CreateView):
     template_name = 'practice/create.html'
 
 
+class AccountDetailView(DetailView):
+    model = User
+    template_name = 'practice/detail.html'
+    context_object_name = 'target_user'
 
+
+
+
+class AccountUpdateView(UpdateView):
+    model = User
+    form_class = AccountUpdateForm
+    success_url = reverse_lazy('accountapp:hello_world')
+    template_name = 'practice/update.html'
+
+class AccountDeleteView(DeleteView):
+    model = User
+    success_url = reverse_lazy('accountapp:login')
+    template_name = 'practice/delete.html'
