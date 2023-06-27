@@ -3,8 +3,8 @@
 {% block content %}
 
   <div style="text-align:center;">
-    <h4>회원탈퇴</h4>
-    <form action ="{% url 'accountapp:delete' pk=target_user.pk %}" method="post">
+    <h4>방명록 작성</h4>
+    <form action ="{% url 'articleapp:create' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {% bootstrap_form form %}
       <input type="submit" class="btn btn-primary">

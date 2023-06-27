@@ -3,7 +3,9 @@
     <h1> 브리스 코리아 </h1>
     <div style="font-size: .6rem; ">
         <span>공지사항</span> |
-        <span>구매문의</span> |
+        <a href="{% url 'articleapp:list' %}">
+        <span>방명록</span>
+        </a>
 
         {% if not user.is_authenticated %}
         <a href="{% url 'accountapp:login' %}?next={{request.path}}">
@@ -22,6 +24,7 @@
         <a href="{% url 'accountapp:detail' pk=user.pk %}">
         <span>마이페이지</span>
         </a>
+
         {% endif %}
 
 
